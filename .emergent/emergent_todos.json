@@ -13,26 +13,26 @@
   },
   {
     "content": "Phase 2: Get design guidelines via design_agent",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Phase 2: Build backend (auth, mining, wallet, network)",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "content": "Phase 2: Build frontend (Landing, Login, Dashboard, Leaderboard, Explorer)",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "content": "Phase 2: Web Worker SHA-256 miner + i18n toggle ID/EN",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "content": "Phase 2: All user stories implemented and verified",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "Phase 2: End-to-end testing via testing_agent_v3",
-    "status": "pending"
+    "status": "in_progress"
   }
 ]
