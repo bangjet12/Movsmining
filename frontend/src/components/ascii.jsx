@@ -114,6 +114,7 @@ export function LanguageToggle() {
         >
             <span className="movs-muted">[ </span>
             <button
+                type="button"
                 onClick={() => setLang('id')}
                 className={lang === 'id' ? 'movs-accent font-bold' : 'movs-dim'}
                 data-testid="lang-id"
@@ -122,6 +123,7 @@ export function LanguageToggle() {
             </button>
             <span className="movs-muted"> | </span>
             <button
+                type="button"
                 onClick={() => setLang('en')}
                 className={lang === 'en' ? 'movs-accent font-bold' : 'movs-dim'}
                 data-testid="lang-en"
