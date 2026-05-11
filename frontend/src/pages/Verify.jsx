@@ -15,23 +15,25 @@ export default function Verify() {
     const nav = useNavigate();
 
     useEffect(() => {
-        if (!token) {
+    if (!token) {
+        setStatus('error');
+        setErr('missing token');
+        return;
+    }
+
+    (async () => {
+        try {
+            const r = await apiClient.get(`/auth/verify?token=${encodeURIComponent(token)}`);
+            await loginWithToken(r.data.token, r.data.user);
+            setStatus('success');
+            setTimeout(() => nav('/dashboard'), 600);
+        } catch (e) {
             setStatus('error');
-            setErr('missing token');
-            return;
+            setErr(e?.response?.data?.detail || 'verification failed');
         }
-        (async () => {
-            try {
-                const r = await apiClient.get(`/auth/verify?token=${encodeURIComponent(token)}`);
-                await loginWithToken(r.data.token, r.data.user);
-                setStatus('success');
-                setTimeout(() => nav('/dashboard'), 600);
-            } catch (e) {
-                setStatus('error');
-                setErr(e?.response?.data?.detail || 'verification failed');
-            }
-        })();
-    }, [token]);
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [token]);
 
     return (
         <div className="mx-auto max-w-2xl px-3 sm:px-6 py-12" data-testid="page-verify">
